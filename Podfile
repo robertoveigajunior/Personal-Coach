@@ -5,5 +5,6 @@ target 'Progresso' do
   use_frameworks!
 
 pod 'Parse'
+pod 'IQKeyboardManager'
 
 end

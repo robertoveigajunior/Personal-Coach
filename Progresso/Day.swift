@@ -15,6 +15,14 @@ extension Day {
         self.message = message
         self.saveInBackground()
     }
+    func checkDayAvailable(onCompletion:[Day] -> ()) {
+        let day = Day.query()
+        day?.findObjectsInBackgroundWithBlock({ (arr, err) in
+            if err == nil && arr?.count > 0 {
+                onCompletion(arr as! [Day])
+            }
+        })
+    }
 }
 
 class Day: PFObject,  PFSubclassing {
