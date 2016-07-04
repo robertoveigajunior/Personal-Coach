@@ -2,9 +2,11 @@
 # platform :ios, '9.0'
 
 target 'Progresso' do
-  use_frameworks!
-
-pod 'Parse'
-pod 'IQKeyboardManager'
-
+    use_frameworks!
+    
+    # pod 'Parse'
+    pod 'Alamofire'
+    pod 'IQKeyboardManager'
+    pod 'RealmSwift'
+    
 end

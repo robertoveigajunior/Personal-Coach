@@ -1,18 +1,23 @@
 PODS:
-  - Bolts/Tasks (1.7.0)
+  - Alamofire (3.4.0)
   - IQKeyboardManager (4.0.2)
-  - Parse (1.13.0):
-    - Bolts/Tasks (~> 1.6)
+  - Realm (0.102.0):
+    - Realm/Headers (= 0.102.0)
+  - Realm/Headers (0.102.0)
+  - RealmSwift (0.102.0):
+    - Realm (= 0.102.0)
 
 DEPENDENCIES:
+  - Alamofire
   - IQKeyboardManager
-  - Parse
+  - RealmSwift
 
 SPEC CHECKSUMS:
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
-  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+  Realm: 5d219f9037e3ec2019c599b8227bfc95433cb10e
+  RealmSwift: e6f436f9fea1c57b9ad6d1c46d57562c845f3c4c
 
-PODFILE CHECKSUM: 7d6219e58ae6eb5b03064af18bea3f8242889ac7
+PODFILE CHECKSUM: e72d739ba5e9edd4664bc8fccd0e48e2b17edcc6
 
 COCOAPODS: 1.0.0

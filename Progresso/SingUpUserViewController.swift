@@ -21,8 +21,9 @@ class SingUpUserViewController: UIViewController {
     }
     
     @IBAction func singIn(sender: AnyObject) {
-        User().singIn(self.txtUsername.text!, password: txtPassword.text!, email: self.txtEmail.text!, emailVerified: self.txtEmailVerified.text!, nickname: self.txtNickname.text!,vc: self)
+        User().singUp(self.txtUsername.text!, _password: txtPassword.text!, _email: self.txtEmail.text!, _emailVerified: self.txtEmailVerified.text!, _nickname: self.txtNickname.text!, _vc: self)
     }
+    
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

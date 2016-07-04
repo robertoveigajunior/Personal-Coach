@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Bolts.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,12 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Parse.xcscheme</key>
+		<key>Pods-Progresso.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Progresso.xcscheme</key>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +32,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
+		<key>5D151EA0AFC6E950CEF6476F0B98FFA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B272B33F162D6E5C3510BA50ECF2684B</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95735EA5569910A4E9571A54F5868D8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CDF7CBF571F1FE313EF71C109E510524</key>
+		<key>D016D03375AF7BCEBCB2CFABB7E2C124</key>
 		<dict>
 			<key>primary</key>
 			<true/>

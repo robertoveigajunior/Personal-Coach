@@ -7,71 +7,61 @@
 //
 
 import UIKit
-import Parse
+import RealmSwift
+import Alamofire
 
 extension User {
-    func singIn(username:String, password:String, email:String, emailVerified:String, nickname:String, vc:UIViewController){
-        let finalEmail = emailVerified.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    func singUp(_username:String, _password:String, _email:String, _emailVerified:String, _nickname:String, _vc:UIViewController){
+        let finalEmail = _emailVerified.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
-        // Validate the text fields
-//        if countString(username) < 5 {
-//            var alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
-//            
-//        } else if count(password) < 8 {
-//            var alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
-//            
-//        } else if count(email) < 8 {
-//            var alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
-//            
-//        } else {
-            // Run a spinner to show a task in progress
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
-            spinner.startAnimating()
-            
-            let newUser = PFUser()
-            
-            newUser.username = username
-            newUser.password = password
-            newUser.email = finalEmail
-            
-            // Sign up the user asynchronously
-            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+        let params = ["username":_username,
+                      "password":_password,
+                      "email":finalEmail,
+                      "emailVerified":_emailVerified,
+                      "nickname":_nickname]
+        
+        let headers = ["X-Parse-Application-Id": Keys.APPID,
+                       "X-Parse-REST-API-Key": Keys.RESTAPIKEY,
+                       "Content-Type": "application/json"]
+        Alamofire.request(.POST, Keys.USERS, parameters: params, headers: headers)
+            .responseJSON { response in
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
                 
-                // Stop the spinner
-                spinner.stopAnimating()
-                if ((error) != nil) {
-                    let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.showViewController(vc, sender: nil)
-                    
-                } else {
-                    let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.showViewController(vc, sender: nil)
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") as! DayTableViewController
-                        vc.presentViewController(viewController, animated: true, completion: nil)
-                    })
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
                 }
-            })
-        }
-    //}
-}
-
-class User: PFUser {
-    
-    @NSManaged var days: [Day]!
-    @NSManaged var nickname: String?
-    @NSManaged var emailVerified: String?
-    
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") as! DayTableViewController
+                _vc.presentViewController(viewController, animated: true, completion: nil)
         }
     }
+    
+    func logInWithUsername(_username:String, _password:String,onCompletion:Bool -> ()){
+        
+        let params = ["username":_username,
+                      "password":_password]
+        
+        let headers = ["X-Parse-Application-Id": Keys.APPID,
+            "X-Parse-REST-API-Key": Keys.RESTAPIKEY]
+        
+        Alamofire.request(.GET, Keys.LOGIN, parameters: params, headers: headers)
+            .responseJSON { response in
+                print(response.result)
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+                onCompletion(true)
+        }
+    }
+}
 
+class User: Object {
+    
+    dynamic var username: String?
+    dynamic var password: String?
+    dynamic var nickname: String?
+    dynamic var email: String?
+    dynamic var emailVerified: String?
+    
 }

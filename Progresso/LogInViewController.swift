@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 class LogInViewController: UIViewController {
 
@@ -16,16 +15,16 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func logInAction(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground(txtUsername.text!, password: txtPassword.text!) { (user, err) in
-            if err == nil {
+        User().logInWithUsername(txtUsername.text!, _password: txtPassword.text!) {
+            if $0 {
                 self.performSegueWithIdentifier("sgMainViewController", sender: nil)
             }
         }
+        
+        
     }
    
     @IBAction func singUpAction(sender: AnyObject) {

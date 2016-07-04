@@ -7,31 +7,37 @@
 //
 
 import UIKit
-import Parse
+import RealmSwift
+import Alamofire
 
 extension Day {
     func saveDay(score:Int,message:String) {
         self.score = score
         self.message = message
-        self.saveInBackground()
+        self.save()
     }
     func checkDayAvailable(onCompletion:[Day] -> ()) {
-        let day = Day.query()
-        day?.findObjectsInBackgroundWithBlock({ (arr, err) in
-            if err == nil && arr?.count > 0 {
-                onCompletion(arr as! [Day])
-            }
-        })
+        let headers =  ["X-Parse-Application-Id": Keys.APPID,
+                        "X-Parse-REST-API-Key": Keys.RESTAPIKEY]
+        
+        Alamofire.request(.GET, Keys.DAY, headers: headers)
+            .responseJSON { response in
+                let realm = try! Realm()
+                try! realm.write {
+                    let json = try! NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions())
+                    realm.create(Day.self, value: json, update: true)
+                }
+        }
     }
 }
 
-class Day: PFObject,  PFSubclassing {
+class Day: Object {
     
     @NSManaged var score: Int
     @NSManaged var message: String?
     
-    static func parseClassName() -> String {
-        return "Day"
+    private func save() {
+        
     }
 }
 
