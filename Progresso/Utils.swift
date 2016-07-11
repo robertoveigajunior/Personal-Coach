@@ -8,6 +8,20 @@
 
 import UIKit
 
-class Utils: NSObject {
+class Utils {
+    
+    static func saveObjectTemporarily(object: AnyObject, forKey key: String) {
+        NSUserDefaults.standardUserDefaults().setObject(object, forKey: key)
+    }
+    
+    static func saveObject(object: AnyObject, forKey key: String) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(object, forKey: key)
+        userDefaults.synchronize()
+    }
+    
+    static func getObject(key: String) -> AnyObject? {
+        return NSUserDefaults.standardUserDefaults().objectForKey(key)
+    }
 
 }

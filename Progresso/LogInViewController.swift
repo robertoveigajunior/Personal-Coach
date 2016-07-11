@@ -9,16 +9,19 @@
 import UIKit
 
 class LogInViewController: UIViewController {
-
+    
     @IBOutlet weak var txtUsername: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     @IBAction func logInAction(sender: AnyObject) {
-        User().logInWithUsername(txtUsername.text!, _password: txtPassword.text!) {
+        User().logIn(self.txtUsername.text!, _password: self.txtPassword.text!) {
+            print("name: \(self.txtUsername.text!)")
+            print("password: \(self.txtPassword.text!)")
+            print($0)
             if $0 {
                 self.performSegueWithIdentifier("sgMainViewController", sender: nil)
             }
@@ -26,10 +29,10 @@ class LogInViewController: UIViewController {
         
         
     }
-   
+    
     @IBAction func singUpAction(sender: AnyObject) {
         self.performSegueWithIdentifier("sgSingUpViewController", sender: nil)
     }
     
-
+    
 }

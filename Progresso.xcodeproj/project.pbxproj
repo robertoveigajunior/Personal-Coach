@@ -10,6 +10,7 @@
 		69466D521D26A70D0084EBDC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69466D511D26A70D0084EBDC /* User.swift */; };
 		69466D541D26B18B0084EBDC /* SingUpUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69466D531D26B18B0084EBDC /* SingUpUserViewController.swift */; };
 		69466D561D26B5000084EBDC /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69466D551D26B5000084EBDC /* LogInViewController.swift */; };
+		69466D581D2B56F80084EBDC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69466D571D2B56F80084EBDC /* Utils.swift */; };
 		69B8F8801D24C16300800A89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8F87F1D24C16300800A89 /* AppDelegate.swift */; };
 		69B8F8851D24C16300800A89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B8F8831D24C16300800A89 /* Main.storyboard */; };
 		69B8F8871D24C16300800A89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B8F8861D24C16300800A89 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		69466D511D26A70D0084EBDC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		69466D531D26B18B0084EBDC /* SingUpUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpUserViewController.swift; sourceTree = "<group>"; };
 		69466D551D26B5000084EBDC /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		69466D571D2B56F80084EBDC /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		69B8F87C1D24C16200800A89 /* Progresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B8F87F1D24C16300800A89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B8F8841D24C16300800A89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				69B8F8911D24C70000800A89 /* Keys.swift */,
 				69B8F8831D24C16300800A89 /* Main.storyboard */,
 				69B8F8881D24C16300800A89 /* LaunchScreen.storyboard */,
+				69466D571D2B56F80084EBDC /* Utils.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				69466D541D26B18B0084EBDC /* SingUpUserViewController.swift in Sources */,
 				69466D521D26A70D0084EBDC /* User.swift in Sources */,
 				69B8F8971D24D54800800A89 /* DayTableViewController.swift in Sources */,
+				69466D581D2B56F80084EBDC /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

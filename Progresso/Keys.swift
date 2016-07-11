@@ -10,7 +10,7 @@ import Foundation
 
 class Keys {
     
-    private static let SERVERURL = "http://entropia-projects.ddns.net:1337"
+    static let SERVERURL = "http://entropia-projects.ddns.net:1337"
     
     static let APPID = "app.id"
     static let CLIENTKEY = "888"
@@ -19,5 +19,7 @@ class Keys {
     static let USERS = "\(SERVERURL)/parse/users"
     static let DAY = "\(SERVERURL)/parse/classes/day"
     static let LOGIN = "\(SERVERURL)/parse/login"
+    
+    static let CURRENTUSER = "currentUser"
     
 }
