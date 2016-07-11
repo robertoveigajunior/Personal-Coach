@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func logInAction(sender: AnyObject) {
-        User().logIn(self.txtUsername.text!, _password: self.txtPassword.text!) {
+        User().singIn(self.txtUsername.text!, _password: self.txtPassword.text!) {
             print("name: \(self.txtUsername.text!)")
             print("password: \(self.txtPassword.text!)")
             print($0)

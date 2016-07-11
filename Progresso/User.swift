@@ -84,8 +84,9 @@ class User: Object {
         request.HTTPMethod = "POST"
         request.HTTPBody = postData
         request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-        request.setValue("X-Parse-Application-Id", forHTTPHeaderField: Keys.APPID)
-        request.setValue("X-Parse-REST-API-Key", forHTTPHeaderField: Keys.RESTAPIKEY)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/X-Parse-Application-Id", forHTTPHeaderField: Keys.APPID)
+        request.setValue("application/X-Parse-REST-API-Key", forHTTPHeaderField: Keys.RESTAPIKEY)
 
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
